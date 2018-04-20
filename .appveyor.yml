@@ -21,8 +21,9 @@ install:
   - IF /I "%PLATFORM%" == "x86" SET PATH=C:\python27;%PATH%
   - IF /I "%PLATFORM%" == "x64" CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd64
   - IF /I "%PLATFORM%" == "x86" CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
-  - npm run configure --msvs_version=2013
-  - npm run build
+  - npm install
+  # - npm run configure --msvs_version=2013
+  # - npm run build
 
 cache:
 - c:\OpenSSL-Win32

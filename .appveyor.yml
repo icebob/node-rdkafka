@@ -1,4 +1,4 @@
-version: 0.11.4-R-pre{build}
+version: 2.3.2-B{build}
 pull_requests:
   do_not_increment_build_number: true
 image: Visual Studio 2013
@@ -9,6 +9,10 @@ environment:
     nodejs_version: '8'
   - platform: win32
     nodejs_version: '8'
+  - platform: x64
+    nodejs_version: '6'
+  - platform: win32
+    nodejs_version: '6'
 
 install:
   - git submodule update --init --recursive
@@ -23,8 +27,6 @@ install:
   - IF /I "%PLATFORM%" == "x64" CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" amd64
   - IF /I "%PLATFORM%" == "x86" CALL "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86
   - npm install
-  # - npm run configure --msvs_version=2013
-  # - npm run build
 
 cache:
 - c:\OpenSSL-Win32
@@ -36,25 +38,17 @@ nuget:
 before_build:
 - cmd: nuget restore win32/librdkafka.sln
 
-
 build: off
-# build:
-#   project: win32/librdkafka.sln
-#   publish_nuget: true
-#   publish_nuget_symbols: true
-#   include_nuget_references: true
-#   parallel: true
-#   verbosity: normal
 
 test: off
 deploy: off
 
 artifacts:
-- path: '**\*.dll'
+- path: 'build\Release\*.dll'
   name: Libraries
-- path: '**\*.lib'
+- path: 'build\Release\*.lib'
   name: Libraries
-- path: '**\*.pdb'
+- path: 'build\Release\*.node'
   name: Libraries
-- path: '**\*.node'
-  name: Node Native Modules
+- path: 'build\Release\*.pdb'
+  name: Libraries

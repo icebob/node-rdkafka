@@ -49,7 +49,8 @@
                 ],
                 'AdditionalIncludeDirectories': [
                   'deps/librdkafka/src-cpp'
-                ]
+                ],
+                "DisableSpecificWarnings": [ "4267", "4996", "4244" ]
               }
             },
             'msvs_version': '2013',

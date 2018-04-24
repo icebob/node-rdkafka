@@ -11,6 +11,7 @@ environment:
   matrix:
     # - nodejs_version: '6'
     - binary_builder: "true"
+      publish_binary: "true"
       nodejs_version: '8'
 
 platform:
@@ -46,7 +47,7 @@ install:
       "git latest tag" = "$(git describe --tags --always HEAD)"
       "appveyor_repo_tag" = $env:appveyor_repo_tag
     } | Out-String | Write-Host;
-- npm install
+# - npm install
 
 nuget:
   account_feed: true

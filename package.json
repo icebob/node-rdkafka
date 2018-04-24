@@ -7,7 +7,8 @@
     "configure": "node-gyp configure",
     "build": "node-gyp build",
     "test": "make test",
-    "install": "prebuild-install || node-gyp rebuild",
+    "install": "prebuild-install",
+    "install2": "prebuild-install || node-gyp rebuild",
     "prebuild": "prebuild -t 8.0.0 --strip --verbose --include-regex \"\\.(node|dll)$\""
   },
   "keywords": [

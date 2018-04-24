@@ -9,12 +9,12 @@ environment:
   prebuild_upload:
     secure: azqdiwkPhQA0OVfRG5kQRCK5CuTgg2X4QIdkRSZTD+vm4R+p7M4iFMI18Zu/tXed # your encrypted token from GitHub
   matrix:
-    - nodejs_version: '6'
+    # - nodejs_version: '6'
     - binary_builder: "true"
       nodejs_version: '8'
 
 platform:
-  - x86
+  # - x86
   - x64
 
 cache:
@@ -54,7 +54,7 @@ nuget:
   disable_publish_on_pr: true
 
 before_build:
-- cmd: nuget restore win32/librdkafka.sln
+# - cmd: nuget restore win32/librdkafka.sln
 
 # Check if we're building the latest tag, if so
 # then we publish the binaries if tests pass.
@@ -83,14 +83,14 @@ test_script:
     }
     true;
 
-# artifacts:
-# - path: 'build\Release\*.dll'
-#   name: Libraries
-# - path: 'build\Release\*.lib'
-#   name: Libraries
-# - path: 'build\Release\*.node'
-#   name: Libraries
-# - path: 'build\Release\*.pdb'
-#   name: Libraries
+artifacts:
+- path: 'build\Release\*.dll'
+  name: Libraries
+- path: 'build\Release\*.lib'
+  name: Libraries
+- path: 'build\Release\*.node'
+  name: Libraries
+- path: 'build\Release\*.pdb'
+  name: Libraries
 
 deploy: off

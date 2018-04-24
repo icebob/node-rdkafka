@@ -9,7 +9,7 @@
     "test": "make test",
     "preinstall": "node util/configure",
     "install": "prebuild-install || node-gyp rebuild",
-    "prebuild": "prebuild -t 8.11.0 --strip --verbose --include-regex \"\\.(node|dll)$\""
+    "prebuild": "prebuild -t 8.0.0 --strip --verbose --include-regex \"\\.(node|dll)$\""
   },
   "keywords": [
     "kafka",

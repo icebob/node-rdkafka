@@ -14,12 +14,11 @@ matrix:
     - "./run_docker.sh"
     install:
     - npm install --build-from-source
-    after_script:
-    - npm run prebuild
     script:
-    - make lint
-    - make test
-    - make e2e
+    # - make lint
+    # - make test
+    # - make e2e
+    - npm run prebuild
   # - os: linux
   #   dist: trusty
   #   sudo: required

@@ -54,12 +54,18 @@ matrix:
   - os: osx
     osx_image: xcode8
     nodejs:
-    - 4
-    - 6
+    # - 4
+    # - 6
+    - 8
+    # - 9
+    install:
+    - npm install --build-from-source
     script:
-    - make lint
-    - make test
-    - make check
+    # - make lint
+    # - make test
+    # - make e2e
+    - npm run prebuild
+
 language: node_js
 cache:
   directories:

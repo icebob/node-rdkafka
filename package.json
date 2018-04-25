@@ -10,7 +10,7 @@
     "preinstall": "node util/configure",
     "install": "prebuild-install --verbose",
     "install2": "prebuild-install --verbose || node-gyp rebuild",
-    "prebuild": "prebuild -t 8.0.0 --strip --verbose --include-regex \"\\.(node|dll|so)$\""
+    "prebuild": "prebuild -t 8.0.0 --strip --verbose --include-regex \"\\.(node|dll|so|so\\.1)$\""
   },
   "keywords": [
     "kafka",

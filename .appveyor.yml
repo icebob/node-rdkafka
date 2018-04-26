@@ -5,14 +5,14 @@ image: Visual Studio 2013
 configuration: Release
 
 environment:
-  nodejs_version: '8'
+  nodejs_version: '6'
   prebuild_upload:
     secure: azqdiwkPhQA0OVfRG5kQRCK5CuTgg2X4QIdkRSZTD+vm4R+p7M4iFMI18Zu/tXed # your encrypted token from GitHub
   matrix:
     # - nodejs_version: '6'
     - binary_builder: "true"
       publish_binary: "true"
-      nodejs_version: '8'
+      nodejs_version: '6'
 
 platform:
   # - x86
